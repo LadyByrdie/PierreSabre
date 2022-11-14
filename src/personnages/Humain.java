@@ -12,7 +12,26 @@ public class Humain {
 	this.argent = argent;
     }
 
-    public String priseParole() {
+    
+    public String getNom() {
+		return nom;
+	}
+
+
+
+	public String getBoisson() {
+		return boisson;
+	}
+
+
+
+	public int getArgent() {
+		return argent;
+	}
+
+
+
+	public String priseParole() {
 	return "(" + nom + ")";
     }
 
@@ -39,9 +58,9 @@ public class Humain {
     public void acheter(String machin, int prix) {
 	if (argent > prix) {
 	    perdreArgent(prix);
-	    parler("J'ai " + argent + " sous en poche. Je vais pouvoir m'offrir " + machin + " à " + prix + " sous.");
+	    parler("J'ai " + argent + " sous en poche. Je vais pouvoir m'offrir " + machin + " ï¿½ " + prix + " sous.");
 	} else {
-	    parler("J'ai n'ai plus que " + argent + " sous en poche. Je ne peux mêmepas m'offrir" + machin + " à "
+	    parler("J'ai n'ai plus que " + argent + " sous en poche. Je ne peux mï¿½mepas m'offrir" + machin + " ï¿½ "
 		    + prix + " sous.");
 	}
     }
