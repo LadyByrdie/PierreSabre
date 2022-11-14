@@ -5,12 +5,21 @@ import personnages.Humain;
 import personnages.Ronin;
 
 public class Yakuza extends Humain {
+    int reputation = 0;
+    String Gang;
 
-    public Yakuza(String nom, String boisson, int argent, String Gang) {
-	super(nom, boisson, argent);
+    public int getReputation() {
+	return reputation;
     }
 
-    int reputation = 0;
+    public Yakuza(String nom, String boisson, int argent, String gang) {
+	super(nom, boisson, argent);
+	this.Gang = gang;
+    }
+
+    public String getGang() {
+	return Gang;
+    }
 
     public void extorquer(Commercant victime) {
 	int vole = victime.getArgent();
@@ -21,10 +30,6 @@ public class Yakuza extends Humain {
 	victime.seFaireExtorquer();
 	parler("J'ai piqué les " + vole + " sous de Marco, ce qui me fait " + getArgent()
 		+ " sous dans ma poche. Hi!Hi!");
-    }
-
-    public int getReputation() {
-	return reputation;
     }
 
     public int perdre() {
@@ -40,4 +45,11 @@ public class Yakuza extends Humain {
 	parler("Ce ronin pensit vraiment battre" + getNom() + " du clan de Warsong? Je l'ai dépouillé de ses "
 		+ adversaire.getArgent() + " sous.");
     }
+
+    @Override
+    public void direBonjour() {
+	parler("Bonjour je m'appelle " + nom + " et j'aime boire du " + boisson);
+	parler("Mon clan est celui de " + getGang());
+    }
+
 }
